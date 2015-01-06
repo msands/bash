@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# system_page - A script to produce an HTML file
+
+##### Constants
+
+TITLE="System Information for $HOSTNAME"
+RIGHT_NOW=$(date +"%x %r %Z")
+TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+
+##### Functions
+
+function system_info
+{
+  # This is a function stub
+  echo "<h2>System relese info</h2>"
+  echo "<p>Function not yet implemented</p>"
+}
+
+function show_uptime
+{
+  echo "<h2>System uptime</h2>"
+  echo "<pre>"
+  uptime
+  echo "</pre>"
+}
+
+function drive_space
+{
+  echo "<h2>Drive Space</h2>"
+  echo "<pre>"
+  df -H
+  echo "</pre>"
+}
+
+function home_space
+{
+  echo "<h2>User home directory space"
+  echo "<pre>"
+  echo "Bytes Directory"
+  du -sh $HOME/* | sort -nr
+  echo "</pre>"
+}
+
+##### Main
+
+cat <<- _EOF_
+  <html>
+  <head>
+    <title>
+      $TITLE
+    </title>
+  </head>
+
+  <body>
+    <h1>$TITLE</h1>
+    <p>$TIME_STAMP</p>
+    $(system_info)
+    $(show_uptime)
+    $(drive_space)
+    $(home_space)
+  </body>
+  </html>
+_EOF_
