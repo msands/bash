@@ -4,8 +4,7 @@
 ## You can make customizations to your
 ## bash profile.
 
-if [ -f $HOME/.bash_profile ]; then
-  echo "You have a .bash_profile.  No need to worry."
-else
-  echo "Uh oh.  No .bash_profile found."
+if [ -f $HOME/.bash_profile ]
+then echo "You have a .bash_profile.  No need to worry."
+else echo "Uh oh.  No .bash_profile found."
 fi
